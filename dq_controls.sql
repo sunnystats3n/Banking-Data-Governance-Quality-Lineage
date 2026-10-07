@@ -1,5 +1,4 @@
 -- Banking Data Governance Portfolio Project
--- Results are computed against the supplied synthetic CSVs after loading them into SQLite.
 -- Assessment timestamp: 2026-10-02 12:00:00
 
 -- DQ-001 Completeness
