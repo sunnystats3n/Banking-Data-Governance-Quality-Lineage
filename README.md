@@ -35,14 +35,14 @@ The data intentionally contains controlled DQ defects so that the project demons
 ## Data-quality framework
 
 | ID | Dimension | Example control |
-|---|---|---|
-| DQ-001 | Completeness | Required data elements are populated |
-| DQ-002 | Uniqueness | Identifier values are unique where required |
-| DQ-003 | Validity | Values conform to approved domains/ranges |
-| DQ-004 | Referential integrity | Foreign keys resolve to valid parent records |
-| DQ-005 | Consistency | Related values agree across tables |
-| DQ-006 | Timeliness | Data is refreshed within an approved SLA |
-| DQ-007 | Accuracy / reconciliation | Values reconcile to an independent trusted reference where available |
+|---        |---           |---                                   |
+| DQ-001    | Completeness | Required data elements are populated |
+| DQ-002    | Uniqueness   | Identifier values are unique where required |
+| DQ-003    | Validity     | Values conform to approved domains/ranges |
+| DQ-004    | Referential integrity | Foreign keys resolve to valid parent records |
+| DQ-005    | Consistency   | Related values agree across tables |
+| DQ-006    | Timeliness   | Data is refreshed within an approved SLA |
+| DQ-007    | Accuracy / reconciliation | Values reconcile to an independent trusted reference where available |
 
 ## Actual assessment
 The supplied CSVs were tested with 21 SQL controls.
