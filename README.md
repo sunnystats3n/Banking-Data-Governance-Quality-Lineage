@@ -9,7 +9,7 @@ This distinction is intentional: the repository does not claim platform executio
 Demonstrate how a Data Governance / Data Steward / Data Quality Analyst can govern a banking data estate from source to reporting:
 
 **RAW → STAGING → DQ / TRANSFORM → CURATED → REPORTING**
-
+ 
 The governance layer is designed around concepts that map naturally to Microsoft Purview Data Map and Unified Catalog:
 
 - Governance domain: **Retail Banking Data**
