@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" modified="2026-10-07T06:35:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="banking-governance-lineage" name="Banking Governance Lineage">
+    <mxGraphModel dx="1420" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="BANKING DATA GOVERNANCE, QUALITY &amp; LINEAGE — DESIGN ARTIFACT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B4F71;fontColor=#FFFFFF;fontStyle=1;fontSize=22;strokeColor=#0B4F71;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1520" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Designed for Microsoft Purview concepts • SQL-based DQ • End-to-end source-to-report lineage • NOT EXECUTED IN MICROSOFT PURVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF4F8;fontColor=#1F3A4A;fontSize=14;strokeColor=#9CC9DC;" vertex="1" parent="1">
+          <mxGeometry x="120" y="105" width="1360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="govTitle" value="GOVERNANCE OVERLAY — BUSINESS CONTEXT + CONTROL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DFF3FA;fontColor=#0B4F71;fontStyle=1;fontSize=17;strokeColor=#56B4D8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="175" width="1480" height="42" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="domain" value="&lt;b&gt;Governance Domain&lt;/b&gt;&lt;br&gt;Retail Banking Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5FF;fontColor=#173B63;strokeColor=#2D7FC3;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="70" y="235" width="190" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="product" value="&lt;b&gt;Data Products&lt;/b&gt;&lt;br&gt;Customer &amp; Account Data&lt;br&gt;Transaction Data&lt;br&gt;Retail Banking Reporting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F7F4;fontColor=#0B5C55;strokeColor=#1C9A8A;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="275" y="235" width="220" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="glossary" value="&lt;b&gt;Business Glossary&lt;/b&gt;&lt;br&gt;Customer • Customer ID • Account&lt;br&gt;Account Balance • Transaction • Amount" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1ECFF;fontColor=#4A2C88;strokeColor=#7951C9;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="510" y="235" width="240" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="cde" value="&lt;b&gt;CDEs&lt;/b&gt;&lt;br&gt;Customer ID • Account ID&lt;br&gt;Transaction ID • Balance • Amount" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3D9;fontColor=#7B5500;strokeColor=#D59A17;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="765" y="235" width="220" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="class" value="&lt;b&gt;Classification&lt;/b&gt;&lt;br&gt;Personal / PII&lt;br&gt;Financial / Confidential" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4EAFB;fontColor=#6B2878;strokeColor=#9C43AD;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="235" width="180" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="steward" value="&lt;b&gt;Ownership &amp; Stewardship&lt;/b&gt;&lt;br&gt;Owner • Steward • DQ Analyst&lt;br&gt;Engineer • Product Owner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF0FA;fontColor=#2B4A75;strokeColor=#587EB7;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1195" y="235" width="205" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="controls" value="&lt;b&gt;Governance Controls&lt;/b&gt;&lt;br&gt;DQ thresholds • policies • access&lt;br&gt;retention • issue management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF5EF;fontColor=#2B5E39;strokeColor=#55936A;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1415" y="235" width="110" height="95" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lineageLabel" value="END-TO-END TECHNICAL LINEAGE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B4F71;fontColor=#FFFFFF;fontStyle=1;fontSize=17;strokeColor=#0B4F71;" vertex="1" parent="1">
+          <mxGeometry x="520" y="370" width="560" height="42" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="raw" value="&lt;b&gt;1. RAW / SOURCE&lt;/b&gt;&lt;br&gt;ADLS Gen2&lt;br&gt;&lt;br&gt;&lt;b&gt;Files&lt;/b&gt;&lt;br&gt;customers.csv (200)&lt;br&gt;accounts.csv (400)&lt;br&gt;transactions.csv (1,200)&lt;br&gt;branches.csv (20)&lt;br&gt;&lt;br&gt;&lt;i&gt;Preserve source representation&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F3FF;fontColor=#173B63;strokeColor=#2D7FC3;strokeWidth=3;fontSize=14;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="445" width="260" height="295" as="geometry"/>
+        </mxCell>
+        <mxCell id="staging" value="&lt;b&gt;2. STAGING&lt;/b&gt;&lt;br&gt;SQL database&lt;br&gt;&lt;br&gt;&lt;b&gt;Tables&lt;/b&gt;&lt;br&gt;staging_customers&lt;br&gt;staging_accounts&lt;br&gt;staging_transactions&lt;br&gt;staging_branches&lt;br&gt;&lt;br&gt;&lt;i&gt;Load for profiling and processing&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;fontColor=#0B5C55;strokeColor=#1C9A8A;strokeWidth=3;fontSize=14;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="445" width="250" height="295" as="geometry"/>
+        </mxCell>
+        <mxCell id="dq" value="&lt;b&gt;3. DQ ASSESSMENT / TRANSFORM&lt;/b&gt;&lt;br&gt;SQL controls&lt;br&gt;&lt;br&gt;DQ-001 Completeness&lt;br&gt;DQ-002 Uniqueness&lt;br&gt;DQ-003 Validity&lt;br&gt;DQ-004 Referential integrity&lt;br&gt;DQ-005 Consistency&lt;br&gt;DQ-006 Timeliness&lt;br&gt;DQ-007 Accuracy / reconciliation&lt;br&gt;&lt;br&gt;&lt;i&gt;Profile → investigate → approve remediation&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2ECFF;fontColor=#4A2C88;strokeColor=#7951C9;strokeWidth=3;fontSize=14;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="445" width="310" height="295" as="geometry"/>
+        </mxCell>
+        <mxCell id="curated" value="&lt;b&gt;4. CURATED / TRUSTED&lt;/b&gt;&lt;br&gt;SQL database&lt;br&gt;&lt;br&gt;&lt;b&gt;Tables&lt;/b&gt;&lt;br&gt;curated_customers&lt;br&gt;curated_accounts&lt;br&gt;curated_transactions&lt;br&gt;curated_branches&lt;br&gt;&lt;br&gt;&lt;i&gt;Business-ready governed data&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;fontColor=#174E86;strokeColor=#2D7FC3;strokeWidth=3;fontSize=14;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="445" width="250" height="295" as="geometry"/>
+        </mxCell>
+        <mxCell id="report" value="&lt;b&gt;5. REPORTING / CONSUMPTION&lt;/b&gt;&lt;br&gt;Business / BI layer&lt;br&gt;&lt;br&gt;&lt;b&gt;Output&lt;/b&gt;&lt;br&gt;Customer &amp; Account reporting dataset&lt;br&gt;Banking KPI dashboard&lt;br&gt;&lt;br&gt;&lt;i&gt;Consumers use approved governed data&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF7EE;fontColor=#2B5E39;strokeColor=#55936A;strokeWidth=3;fontSize=14;align=left;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="445" width="220" height="295" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a1" value="INGEST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1F70B7;strokeWidth=4;endArrow=block;endFill=1;fontStyle=1;fontColor=#173B63;" edge="1" parent="1" source="raw" target="staging">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="PROFILE / VALIDATE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1C9A8A;strokeWidth=4;endArrow=block;endFill=1;fontStyle=1;fontColor=#0B5C55;" edge="1" parent="1" source="staging" target="dq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="APPROVED TRANSFORM / REMEDIATE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6A43B7;strokeWidth=4;endArrow=block;endFill=1;fontStyle=1;fontColor=#4A2C88;" edge="1" parent="1" source="dq" target="curated">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="PUBLISH / CONSUME" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4C8C5C;strokeWidth=4;endArrow=block;endFill=1;fontStyle=1;fontColor=#2B5E39;" edge="1" parent="1" source="curated" target="report">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m1" value="governs" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#2D7FC3;strokeWidth=2;endArrow=open;endFill=0;fontColor=#2D7FC3;fontSize=11;" edge="1" parent="1" source="domain" target="raw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="groups / gives business context" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#1C9A8A;strokeWidth=2;endArrow=open;endFill=0;fontColor=#1C9A8A;fontSize=11;" edge="1" parent="1" source="product" target="curated">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="defines terms" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#7951C9;strokeWidth=2;endArrow=open;endFill=0;fontColor=#7951C9;fontSize=11;" edge="1" parent="1" source="glossary" target="curated">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="elevated governance" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#D59A17;strokeWidth=2;endArrow=open;endFill=0;fontColor=#7B5500;fontSize=11;" edge="1" parent="1" source="cde" target="dq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m5" value="applies to sensitive data" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#9C43AD;strokeWidth=2;endArrow=open;endFill=0;fontColor=#6B2878;fontSize=11;" edge="1" parent="1" source="class" target="raw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="accountability" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#587EB7;strokeWidth=2;endArrow=open;endFill=0;fontColor=#2B4A75;fontSize=11;" edge="1" parent="1" source="steward" target="curated">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m7" value="controls / thresholds" style="edgeStyle=orthogonalEdgeStyle;dashed=1;rounded=0;html=1;strokeColor=#55936A;strokeWidth=2;endArrow=open;endFill=0;fontColor=#2B5E39;fontSize=11;" edge="1" parent="1" source="controls" target="dq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="bottomTitle" value="PORTFOLIO EVIDENCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B4F71;fontColor=#FFFFFF;fontStyle=1;fontSize=17;strokeColor=#0B4F71;" vertex="1" parent="1">
+          <mxGeometry x="60" y="790" width="1480" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="ev1" value="&lt;b&gt;Computed SQL evidence&lt;/b&gt;&lt;br&gt;21 controls against 200 customers, 400 accounts, 1,200 transactions, 20 branches" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F7FA;fontColor=#31475E;strokeColor=#B8C4D0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="70" y="850" width="350" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ev2" value="&lt;b&gt;Governance artifacts&lt;/b&gt;&lt;br&gt;DQ register • glossary • CDE rationale • stewardship RACI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F7FA;fontColor=#31475E;strokeColor=#B8C4D0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="440" y="850" width="350" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ev3" value="&lt;b&gt;Lineage evidence&lt;/b&gt;&lt;br&gt;Documented source → staging → DQ/transform → curated → reporting chain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F7FA;fontColor=#31475E;strokeColor=#B8C4D0;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="810" y="850" width="350" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ev4" value="&lt;b&gt;Purview status&lt;/b&gt;&lt;br&gt;Governance model and object mapping designed for Purview; live banking implementation not executed." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7E3;fontColor=#6D4E00;strokeColor=#D6AB42;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="850" width="360" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="footer" value="DESIGN ARTIFACT — NOT EXECUTED IN MICROSOFT PURVIEW • Synthetic data only • For portfolio and interview demonstration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0B4F71;fontColor=#FFFFFF;fontStyle=1;fontSize=14;strokeColor=#0B4F71;" vertex="1" parent="1">
+          <mxGeometry x="180" y="980" width="1240" height="45" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
