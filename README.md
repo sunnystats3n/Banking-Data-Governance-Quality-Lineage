@@ -113,7 +113,7 @@ The lineage is documented as the target architecture. Live Purview lineage was n
 4. Run `sql/dq_controls.sql` against the four loaded tables.
 5. Compare the results with `governance/dq_scorecard_and_raci.xlsx`.
 
-## Why this project matters for Data Governance interviews
+## Why this project matters for Data Governance
 This project demonstrates:
 
 - translating business rules into measurable DQ controls;
@@ -122,4 +122,4 @@ This project demonstrates:
 - identifying candidate CDEs based on business criticality;
 - understanding RAW vs STAGING vs CURATED layers;
 - documenting source-to-report lineage and impact analysis;
-- mapping a platform-neutral governance model to Microsoft Purview concepts without overstating live implementation.
+- mapping a platform-neutral governance model to Microsoft Purview concepts without live implementation.
