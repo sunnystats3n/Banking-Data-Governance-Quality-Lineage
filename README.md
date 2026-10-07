@@ -24,7 +24,7 @@ The governance layer is designed around concepts that map naturally to Microsoft
 All data is synthetic. No real customer information is used.
 
 | File | Records |
-|---|---:|
+|---|---:| 
 | customers.csv | 200 |
 | accounts.csv | 400 |
 | transactions.csv | 1,200 |
