@@ -86,7 +86,6 @@ The scorecard deliberately does **not** call 4/21 a formal enterprise "data qual
     ├── data_dictionary.md
     ├── dq_register.md
     ├── project_walkthrough.md
-    ├── interview_questions.md
     └── original_project_readme.md
 ```
 
