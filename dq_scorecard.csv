@@ -1,0 +1,73 @@
+﻿DQ TEST RESULTS — SQL EVIDENCE,,,,,,,,,,
+Results computed from the supplied synthetic CSVs using SQLite. Assessment timestamp: 2026-10-02 12:00:00.,,,,,,,,,,
+,,,,,,,,,,
+Control ID,Dimension,Field / relationship,SQL test,Actual result,Population,Quality rate,Status,Sample exception / interpretation,Exceptions,Population
+DQ-001A,Completeness,customers.customer_id,"SELECT COUNT(*) - COUNT(customer_id) AS missing_customer_id
+FROM customers;",0,200,100.00%,PASS,200 rows; 100.00% complete,0,200
+DQ-001B,Completeness,customers.postal_code,"SELECT COUNT(*) - COUNT(NULLIF(TRIM(postal_code),'')) AS missing_postal_code
+FROM customers;",2,200,99.00%,FAIL,200 rows; 99.00% complete,2,200
+DQ-001C,Completeness,accounts.customer_id,"SELECT COUNT(*) - COUNT(NULLIF(TRIM(customer_id),'')) AS missing_customer_id
+FROM accounts;",1,400,99.75%,FAIL,400 rows; 99.75% complete,1,400
+DQ-001D,Completeness,accounts.account_type,"SELECT COUNT(*) - COUNT(NULLIF(TRIM(account_type),'')) AS missing_account_type
+FROM accounts;",1,400,99.75%,FAIL,400 rows; 99.75% complete,1,400
+DQ-001E,Completeness,transactions.currency,"SELECT COUNT(*) - COUNT(NULLIF(TRIM(currency),'')) AS missing_currency
+FROM transactions;",1,1200,99.92%,FAIL,"1,200 rows; 99.9167% complete",1,1200
+DQ-002A,Uniqueness,customers.customer_id,"SELECT customer_id, COUNT(*) AS n
+FROM customers
+GROUP BY customer_id
+HAVING COUNT(*) > 1;",C00150 → 2 rows (1 excess duplicate),200,99.50%,FAIL,199 distinct IDs / 200 rows = 99.50% unique,1,200
+DQ-002B,Uniqueness,accounts.account_id,"SELECT account_id, COUNT(*) AS n
+FROM accounts
+GROUP BY account_id
+HAVING COUNT(*) > 1;",0 duplicate groups,400,100.00%,PASS,400 distinct IDs / 400 rows = 100.00% unique,0,400
+DQ-002C,Uniqueness,transactions.transaction_id,"SELECT transaction_id, COUNT(*) AS n
+FROM transactions
+GROUP BY transaction_id
+HAVING COUNT(*) > 1;",T00000700 → 2 rows (1 excess duplicate),1200,99.92%,FAIL,"1,199 distinct IDs / 1,200 rows = 99.9167% unique",1,1200
+DQ-002D,Uniqueness,branches.branch_id,"SELECT branch_id, COUNT(*) AS n
+FROM branches
+GROUP BY branch_id
+HAVING COUNT(*) > 1;",0 duplicate groups,20,100.00%,PASS,20 distinct IDs / 20 rows = 100.00% unique,0,20
+DQ-003A,Validity,customers.customer_status,"SELECT customer_id, customer_status
+FROM customers
+WHERE customer_status NOT IN ('ACTIVE','INACTIVE');",C00062 → ACTIV,200,99.50%,FAIL,1 invalid value / 200 rows,1,200
+DQ-003B,Validity,customers.date_of_birth,"SELECT customer_id, date_of_birth
+FROM customers
+WHERE date_of_birth > '2026-10-02';",C00073 → 2032-05-10,200,99.50%,FAIL,1 future DOB / 200 rows,1,200
+DQ-003C,Validity,accounts.account_status,"SELECT account_id, account_status
+FROM accounts
+WHERE account_status NOT IN ('ACTIVE','CLOSED','SUSPENDED');",A000089 → ACTIV,400,99.75%,FAIL,1 invalid value / 400 rows,1,400
+DQ-003D,Validity,transactions.transaction_type,"SELECT transaction_id, transaction_type
+FROM transactions
+WHERE transaction_type NOT IN ('PURCHASE','PAYMENT','WITHDRAWAL','DEPOSIT','FEE','TRANSFER');",T00000413 → PURCHSE,1200,99.92%,FAIL,"1 invalid value / 1,200 rows",1,1200
+DQ-003E,Validity,transactions.amount,"SELECT transaction_id, amount
+FROM transactions
+WHERE CAST(amount AS REAL) <= 0;",T00000516 → -250.00,1200,99.92%,FAIL,"1 invalid value / 1,200 rows",1,1200
+DQ-004A,Referential integrity,accounts.customer_id → customers.customer_id,"SELECT a.account_id, a.customer_id
+FROM accounts a
+LEFT JOIN customers c ON a.customer_id = c.customer_id
+WHERE TRIM(COALESCE(a.customer_id,''))='' OR c.customer_id IS NULL;",A000035 → blank; A000250 → C99999,400,99.50%,FAIL,2 orphan/missing references / 400 accounts,2,400
+DQ-004B,Referential integrity,accounts.branch_id → branches.branch_id,"SELECT a.account_id, a.branch_id
+FROM accounts a
+LEFT JOIN branches b ON a.branch_id = b.branch_id
+WHERE b.branch_id IS NULL;",A000320 → B999,400,99.75%,FAIL,1 orphan branch reference / 400 accounts,1,400
+DQ-004C,Referential integrity,transactions.account_id → accounts.account_id,"SELECT t.transaction_id, t.account_id
+FROM transactions t
+LEFT JOIN accounts a ON t.account_id = a.account_id
+WHERE a.account_id IS NULL;",T00001000 → A999999,1200,99.92%,FAIL,"1 orphan account reference / 1,200 transactions",1,1200
+DQ-005A,Consistency,transactions.currency vs accounts.currency,"SELECT t.transaction_id, t.account_id, t.currency, a.currency AS account_currency
+FROM transactions t
+JOIN accounts a ON t.account_id = a.account_id
+WHERE TRIM(COALESCE(t.currency,'')) <> ''
+  AND TRIM(COALESCE(a.currency,'')) <> ''
+  AND t.currency <> a.currency;",T00000276 → transaction USD vs account CAD,1200,99.92%,FAIL,"1 mismatch / 1,200 transactions",1,1200
+DQ-005B,Consistency,accounts.credit_limit applicability,"SELECT COUNT(*)
+FROM accounts
+WHERE (account_type='CREDIT_CARD' AND (credit_limit IS NULL OR TRIM(credit_limit)=''))
+   OR (account_type<>'CREDIT_CARD' AND TRIM(COALESCE(credit_limit,''))<>'');",0,400,100.00%,PASS,All 92 CREDIT_CARD accounts have limits; non-credit-card rows do not.,0,400
+DQ-006A,Timeliness,customers.last_updated,"SELECT COUNT(*)
+FROM customers
+WHERE last_updated < datetime('2026-10-02 12:00:00','-24 hours');",126,200,37.00%,FAIL,74/200 within 24h = 37.00%; 126 stale,126,200
+DQ-006B,Timeliness,accounts.last_updated,"SELECT COUNT(*)
+FROM accounts
+WHERE last_updated < datetime('2026-10-02 12:00:00','-24 hours');",250,400,37.50%,FAIL,150/400 within 24h = 37.50%; 250 stale,250,400
