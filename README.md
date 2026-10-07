@@ -34,8 +34,8 @@ The data intentionally contains controlled DQ defects so that the project demons
 
 ## Data-quality framework
 
-| ID | Dimension | Example control |
-| ---       | ---          |  ---                                 |
+| ID        | Dimension    |            Example control           |
+| ---       | ---------    |  ---                                 |
 | DQ-001    | Completeness | Required data elements are populated |
 | DQ-002    | Uniqueness   | Identifier values are unique where required |
 | DQ-003    | Validity     | Values conform to approved domains/ranges |
