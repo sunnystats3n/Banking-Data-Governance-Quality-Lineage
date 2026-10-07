@@ -9,7 +9,7 @@
 | DQ-005 | Consistency | Related fields/tables must agree with each other |
 | DQ-006 | Timeliness | Data must be updated within an agreed SLA |
 
-Do not assume thresholds yet. In the portfolio, distinguish:
+In the portfolio, we distinguish:
 - business requirement
 - DQ rule
 - measured metric
